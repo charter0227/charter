@@ -23,90 +23,77 @@
     color: inherit;
   }
 
-  /* Header */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: #004080;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    z-index: 999;
-  }
-  .logo {
-    font-weight: 700;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-  }
-  nav {
-    display: flex;
-    gap: 1rem;
-  }
-  nav a {
-    background: #007bff;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-  nav a:hover,
-  nav a:focus {
-    background: #0056b3;
-    outline: none;
-  }
-
-  /* Spacer so content doesn't go under fixed header */
-  .header-spacer {
-    height: 56px;
-  }
-
-  /* Container */
-  .container {
-    max-width: 900px;
-    margin: 2rem auto 3rem;
-    padding: 0 1rem;
-  }
-
-  /* Hero Section with marquee */
-  .hero {
-    background: linear-gradient(135deg, #004080 0%, #007bff 100%);
-    color: white;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 6px 12px rgba(0,123,255,0.4);
-    overflow: hidden;
-    position: relative;
-  }
-  .hero h1 {
-    font-size: 1.8rem;
-    margin: 0 0 1rem 0;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-  .marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-  }
-  .marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee-slide 15s linear infinite;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-  @keyframes marquee-slide {
-    0% {
-      transform: translateX(100%);
+   header {
+      background: #0047ab;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-    100% {
-      transform: translateX(-100%);
+
+    header h1 {
+      font-size: 1.2rem;
     }
-  }
+
+    .top-buttons button {
+      background: #fff;
+      color: #0047ab;
+      border: none;
+      padding: 8px 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .top-buttons button:hover {
+      background: #e0e0e0;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0047ab, #0066cc);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+      animation: slideDown 1s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .marquee {
+      background: #fff;
+      color: #0047ab;
+      padding: 0.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .marquee span {
+      display: inline-block;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
   /* Article */
   article {
@@ -198,24 +185,28 @@
 </head>
 <body>
 
-<header role="banner" aria-label="Primary navigation">
-  <div class="logo" tabindex="0">Charter Support</div>
-  <nav role="navigation" aria-label="Main navigation">
-    <a href="#login" tabindex="0" aria-label="Login to your Charter account">Login</a>
-    <a href="#support" tabindex="0" aria-label="Get Charter customer support">Support</a>
-  </nav>
-</header>
+ <header>
+    <h1>Charter Customer Support</h1>
+    <div class="top-buttons">
+      <button onclick="location.href='#login'">Login</button>
+      <button onclick="location.href='#support'">Support</button>
+    </div>
+  </header>
+  
+  <div class="marquee">
+    <span>24/7 Technical Support • Live Chat Available • Manage Your Account Online • Reliable Help When You Need It Most</span>
+  </div>
+
+  <div class="hero">
+    <h2>Your Ultimate Guide to Efficient Assistance</h2>
+    <p>Helping you stay connected with ease and confidence.</p>
+  </div>
+
+  
 
 <div class="header-spacer"></div>
 
 <div class="container">
-
-  <section class="hero" aria-label="Charter Customer Support Hero Section">
-    <h1>Charter Customer Support: Your Ultimate Guide to Efficient Assistance</h1>
-    <div class="marquee-wrapper" aria-hidden="true">
-      <span class="marquee">Reliable Support • 24/7 Assistance • Spectrum Customer Care • Fast Solutions • Expert Help •</span>
-    </div>
-  </section>
 
   <article aria-labelledby="main-title" id="support">
     <h2 id="main-title">In today’s fast-paced world, reliable internet, television, and phone services are more crucial than ever.</h2>
